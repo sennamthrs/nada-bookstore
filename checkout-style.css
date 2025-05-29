@@ -1,0 +1,753 @@
+/* Page Title */
+.page-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 15px;
+}
+
+.page-title i {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-right: 15px;
+}
+
+.page-title h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  color: var(--secondary-color);
+}
+
+.breadcrumb-container {
+  background-color: #f5f5f7;
+  padding: 10px 0;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #eee;
+}
+
+.breadcrumb {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.breadcrumb li {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.breadcrumb li:after {
+  content: "/";
+  margin-left: 5px;
+  color: #aaa;
+}
+
+.breadcrumb li:last-child:after {
+  display: none;
+}
+
+.breadcrumb li.active {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.payment-options {
+  display: grid;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.payment-option {
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.payment-option:hover {
+  border-color: #007bff;
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1);
+}
+
+.payment-label {
+  display: block;
+  padding: 15px 20px;
+  cursor: pointer;
+  margin: 0;
+  position: relative;
+}
+
+.payment-label input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.payment-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+  color: #495057;
+}
+
+.payment-info i {
+  font-size: 18px;
+  color: #6c757d;
+  transition: color 0.3s ease;
+}
+
+/* Selected payment option */
+.payment-option:has(input:checked) {
+  border-color: #007bff;
+  background: linear-gradient(135deg, #f8f9ff 0%, #e3f2fd 100%);
+}
+
+.payment-option:has(input:checked) .payment-info {
+  color: #007bff;
+}
+
+.payment-option:has(input:checked) .payment-info i {
+  color: #007bff;
+}
+
+/* Bank Transfer Section */
+.bank-transfer-info {
+  margin-top: 20px;
+  padding: 25px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  display: none;
+  animation: fadeInUp 0.3s ease;
+}
+
+.bank-transfer-info.show {
+  display: block;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bank-accounts h4 {
+  margin-bottom: 20px;
+  color: #2c3e50;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bank-accounts h4 i {
+  color: #007bff;
+}
+
+/* Bank Account Cards */
+.bank-account-card {
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.bank-account-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  transition: width 0.3s ease;
+}
+
+.bank-account-card:hover {
+  border-color: #007bff;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.bank-account-card:hover::before {
+  width: 8px;
+}
+
+.bank-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  color: #007bff;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.bank-header i {
+  font-size: 20px;
+}
+
+.bank-details .account-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 8px 0;
+}
+
+.account-info .label {
+  color: #6c757d;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.account-number {
+  font-family: "Courier New", "Consolas", monospace;
+  font-weight: bold;
+  color: #2c3e50;
+  cursor: pointer;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  position: relative;
+}
+
+.account-number:hover {
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  border-color: #007bff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
+}
+
+.copy-icon {
+  margin-left: 8px;
+  color: #007bff;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.account-number:hover .copy-icon {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.account-name {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 15px;
+}
+
+/* Payment Proof Upload Section */
+.payment-proof-section {
+  margin-top: 30px;
+  padding-top: 25px;
+  border-top: 2px solid #e9ecef;
+}
+
+.payment-proof-section h4 {
+  margin-bottom: 20px;
+  color: #2c3e50;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.payment-proof-section h4 i {
+  color: #28a745;
+}
+
+/* File Upload Styling */
+.file-upload-wrapper {
+  position: relative;
+  border: 3px dashed #dee2e6;
+  border-radius: 12px;
+  padding: 30px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.file-upload-wrapper:hover {
+  border-color: #007bff;
+  background: linear-gradient(135deg, #f8f9ff 0%, #e3f2fd 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.1);
+}
+
+.file-upload-wrapper.dragover {
+  border-color: #28a745;
+  background: linear-gradient(135deg, #f0fff4 0%, #d4edda 100%);
+  transform: scale(1.02);
+}
+
+.file-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.file-upload-display {
+  pointer-events: none;
+  z-index: 1;
+}
+
+.file-upload-display i {
+  font-size: 32px;
+  color: #007bff;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.file-upload-wrapper:hover .file-upload-display i {
+  transform: scale(1.1);
+  color: #0056b3;
+}
+
+.file-upload-text {
+  display: block;
+  color: #6c757d;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.file-name-display {
+  display: none;
+  color: #28a745;
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background: rgba(40, 167, 69, 0.1);
+  border-radius: 20px;
+  border: 1px solid rgba(40, 167, 69, 0.3);
+}
+
+.file-name-display.show {
+  display: block;
+  animation: fadeInScale 0.3s ease;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.form-text {
+  color: #6c757d;
+  font-size: 13px;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+}
+
+.form-text i {
+  color: #17a2b8;
+}
+
+/* Copy Notification */
+.copy-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.copy-notification.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.copy-notification i {
+  font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bank-transfer-info {
+    padding: 20px 15px;
+    margin-top: 15px;
+  }
+
+  .bank-account-card {
+    padding: 15px;
+    margin-bottom: 12px;
+  }
+
+  .bank-details .account-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .account-number {
+    font-size: 14px;
+    padding: 6px 10px;
+    word-break: break-all;
+  }
+
+  .file-upload-wrapper {
+    padding: 25px 15px;
+    min-height: 100px;
+  }
+
+  .file-upload-display i {
+    font-size: 28px;
+  }
+
+  .file-upload-text {
+    font-size: 14px;
+  }
+
+  .copy-notification {
+    right: 10px;
+    left: 10px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .bank-accounts h4 {
+    font-size: 16px;
+  }
+
+  .payment-proof-section h4 {
+    font-size: 16px;
+  }
+
+  .bank-header {
+    font-size: 14px;
+  }
+
+  .account-info .label {
+    font-size: 13px;
+  }
+
+  .account-name {
+    font-size: 14px;
+  }
+}
+
+/* Checkout Content Layout */
+.checkout-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.page-title h1 {
+  color: #1f2937;
+  margin: 10px 0;
+}
+
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .checkout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.form-section {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.form-section h3 {
+  color: #1f2937;
+  margin-bottom: 20px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.shipping-info {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.shipping-info h4 {
+  color: #1e40af;
+  margin-bottom: 10px;
+}
+
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.payment-option {
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.payment-option:hover {
+  border-color: #3b82f6;
+}
+
+.payment-option:has(input:checked) {
+  border-color: #3b82f6;
+  background: #f0f9ff;
+}
+
+.payment-label {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.payment-label input[type="radio"] {
+  margin-right: 12px;
+  accent-color: #3b82f6;
+}
+
+.payment-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.payment-info i {
+  color: #3b82f6;
+  width: 20px;
+}
+
+.btn-place-order {
+  background: #ff5722;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s;
+}
+
+.btn-place-order:hover {
+  background: #2563eb;
+}
+
+.btn-place-order:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.btn-outline {
+  background: transparent;
+  color: #3b82f6;
+  border: 2px solid #3b82f6;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.btn-outline:hover {
+  background: #3b82f6;
+  color: white;
+}
+
+.error-message {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.order-summary {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+
+.order-summary h3 {
+  color: #1f2937;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.order-item:last-child {
+  border-bottom: none;
+}
+
+.item-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.item-details {
+  flex: 1;
+}
+
+.item-name {
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 4px;
+}
+
+.item-price {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.item-total {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.summary-calculation {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  color: #6b7280;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+  font-weight: 700;
+  font-size: 18px;
+  color: #1f2937;
+}
+
+.security-info {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 16px;
+}
